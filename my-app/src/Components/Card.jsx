@@ -11,15 +11,14 @@ export default function MultiActionAreaCard(props) {
   const isoDateString = props.date;
 const isoDate = new Date(isoDateString);
 const formattedDate = isoDate.toLocaleDateString();
-
-// const src=(props.image==null)?"https://t3.ftcdn.net/jpg/02/35/35/40/240_F_235354051_yz3envzxnH9dulycguP6l4Bh3Xx0BPZ0.jpg":props.image;
-// const image=props.urlToImage;
-// const src=noimage:props.urlToImage;
 // isoDate.toLocaleTimeString();
-
 // console.log(formattedDate); // Output: "1/1/2022 12:00:00 PM"
+
+
 const src="https://t3.ftcdn.net/jpg/02/35/35/40/240_F_235354051_yz3envzxnH9dulycguP6l4Bh3Xx0BPZ0.jpg";
-  return (
+  
+
+return (
    
     <Card sx={{ maxWidth: 380 }} >
    {/* <Link href={props.url} sx={{textDecorationLine:"none"}}> */}
