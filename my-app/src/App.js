@@ -39,16 +39,8 @@ function App() {
      {/* <Footer/> */}
      <Navbar handleTextInputChange={handleTextInputChange}/>
      <div style={{display:"flex",flexWrap:"wrap",gap:"40px 10px", justifyContent:"space-between",margin:"140px"}}>
-      {posts?.map((post)=>( 
-      //  <><p>{post.content}</p>
-      //  <h3>{post.title}</h3>
-      //  <p>{post.description}</p>
-      //  <p>{post.url}</p>
-      //  <p>{post.publishedAt}</p>
-      
+      {posts?.map((post)=>(   
       <Card title={post.title} description={post.description} image={post.urlToImage} date={post.publishedAt} url={post.url}/>
-      
-     
      )
      )}</div>
    

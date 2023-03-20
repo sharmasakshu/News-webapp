@@ -69,7 +69,7 @@ export default function SearchAppBar(props) {
             {/* <MenuIcon /> */}
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href="/"
