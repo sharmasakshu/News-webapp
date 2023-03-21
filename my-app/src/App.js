@@ -2,18 +2,12 @@
 
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Card from './Components/Card'
 import Navbar from './Components/Navbar';
-// import Footer from './Components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import News from './Components/News';
 
 function App() {
-  const [posts, setPost] = useState(null);
-  const [textInput, setTextInput] = useState('top-headlines');
-  const [category, setCategory] = useState('general');
-
-  useEffect(() => {
-    fetchNews();
-  }, [textInput]);
+  const [textInput, setTextInput] = useState('india');
 
   const handleTextInputChange = (event) => {
     if (event.key === 'Enter') {
@@ -22,37 +16,27 @@ function App() {
     }
   };
 
-  const fetchNews = async () => {
-    fetch(`https://newsapi.org/v2/everything?q=${textInput}&apiKey=5632d528a83c406b8ea5a4a70c7aeb8c`)
-      .then((response) => response.json())
-      .then((data) => setPost(data.articles))
-      .catch((error) => console.log(error));
-  };
-
-
-//   const baseURL = "https://newsapi.org/v2/everything?q=keyword&apiKey=5632d528a83c406b8ea5a4a70c7aeb8c";
-
-  console.log(posts);
+  // const fetchNews = async () => {
+  //   fetch(`https://newsapi.org/v2/top-headlines?q=${textInput}&apiKey=5632d528a83c406b8ea5a4a70c7aeb8c`)
+  //     .then((response) => response.json())
+  //     .then((data) => setPost(data.articles))
+  //     .catch((error) => console.log(error));
+  // };
   
   return (
-     <>
-     {/* <Footer/> */}
+     <BrowserRouter>
+
      <Navbar handleTextInputChange={handleTextInputChange}/>
-     <div style={{display:"flex",flexWrap:"wrap",gap:"40px 10px", justifyContent:"space-between",margin:"140px"}}>
-      {posts?.map((post)=>( 
-      //  <><p>{post.content}</p>
-      //  <h3>{post.title}</h3>
-      //  <p>{post.description}</p>
-      //  <p>{post.url}</p>
-      //  <p>{post.publishedAt}</p>
-      
-      <Card title={post.title} description={post.description} image={post.urlToImage} date={post.publishedAt} url={post.url}/>
-      
-     
-     )
-     )}</div>
-   
-    </>
+     <Routes>
+        <Route path="/" element={<News category="general" textInput={textInput}/>}/>
+          <Route path="business" element={<News category="business" textInput={textInput}/>}/>
+          <Route path="health" element={<News category="health" textInput={textInput}/>} />
+          <Route path="entertainment" element={<News category="entertainment" textInput={textInput}/>}/>
+          <Route path="sports" element={<News category="sports" textInput={textInput}/>}/>
+          <Route path="technology" element={<News category="technology" textInput={textInput}/>}/>
+      </Routes>   
+
+    </BrowserRouter>
   );
 }
 

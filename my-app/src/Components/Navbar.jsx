@@ -6,9 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-// import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-// import { useState } from 'react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -54,7 +52,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar(props) {
   
-  
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -69,7 +66,7 @@ export default function SearchAppBar(props) {
             {/* <MenuIcon /> */}
           </IconButton>
           <Typography
-            variant="h6"
+            variant="h5"
             noWrap
             component="a"
             href="/"
@@ -80,26 +77,26 @@ export default function SearchAppBar(props) {
           </Typography>
           <Typography 
           component="a"
-            href="/"
+            href="/business"
             color="inherit" sx={{ mx: 2,display: 'block', textDecoration: 'none'  }}>Business</Typography>
             <Typography 
             component="a"
-            href="/"
+            href="/technology"
             color="inherit"
             sx={{ mx: 2,display: 'block' , textDecoration: 'none' }} >Tech & Science</Typography>
             <Typography 
              component="a"
-            href="/"
+            href="/health"
             color="inherit"
             sx={{ mx: 2,display: 'block', textDecoration: 'none'  }}>Heath</Typography>
             <Typography
              component="a"
-            href="/"
+            href="/entertainment"
             color="inherit"
              sx={{ mx: 2,display: 'block', textDecoration: 'none'  }}>Entertainment</Typography>
           <Typography  
           component="a"
-            href="/"
+            href="/sports"
             color="inherit"
             sx={{ flexGrow: 1, mx:2, display: { xs: 'none', sm: 'block' , textDecoration: 'none' } }}>Sports</Typography>
           <Search>
