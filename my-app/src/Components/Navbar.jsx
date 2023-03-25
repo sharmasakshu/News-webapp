@@ -7,6 +7,8 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useState,useContext } from 'react';
+import MyContext from './MyContext';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -50,9 +52,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar(props) {
-  
+export default function Navbar(props) {
+  // const [textInput, setTextInput] = useState('amritpal');
+  //  console.log(textInput);
+  const {setTextInput} = useContext(MyContext);
+    
+  const handleTextInputChange = (event) => {
+    if (event.key === 'Enter') {
+      console.log(event.target.value);
+      setTextInput(event.target.value);
+    }
+  };
+
   return (
+
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
         <Toolbar>
@@ -106,11 +119,12 @@ export default function SearchAppBar(props) {
             <StyledInputBase
               placeholder="Search…"
               inputProps={{ 'aria-label': 'search' }}
-              onKeyDown= {props.handleTextInputChange}
+              onKeyDown= {handleTextInputChange}
             />
           </Search>
         </Toolbar>
       </AppBar>
     </Box>
+    
   );
 }
